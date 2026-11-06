@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Suman Khatri - Cybersecurity and IT educator, unit leader and curriculum developer in Melbourne.">
+<title>Suman Khatri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: navy header band with name and title; below, a two-column CV — sidebar (contact, education, skills) and main (profile, highlights, experience) */
+:root{
+  --bg:#f3f5f8; --surface:#ffffff; --fg:#1b2433; --muted:#5b6678; --line:#e1e6ed;
+  --navy:#16294a; --navy-fg:#ffffff; --navy-muted:#b8c4d8; --accent:#1f5fae; --accent-soft:#e8f0fa;
+  --font:"IBM Plex Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0f141c; --surface:#171e29; --fg:#e6eaf0; --muted:#9aa5b5; --line:#263041;
+  --navy:#111c30; --navy-fg:#ffffff; --navy-muted:#a7b4c9; --accent:#7fb0ec; --accent-soft:#1c2a3f; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#0f141c; --surface:#171e29; --fg:#e6eaf0; --muted:#9aa5b5; --line:#263041;
+  --navy:#111c30; --navy-fg:#ffffff; --navy-muted:#a7b4c9; --accent:#7fb0ec; --accent-soft:#1c2a3f; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:15.5px;line-height:1.6}
+h1,h2,h3,p,ul{margin:0}
+h1,h2,h3{text-wrap:balance}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+
+.band{background:var(--navy);color:var(--navy-fg)}
+.inner{max-width:68rem;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px))}
+.hero{padding-block:2.75rem 2.5rem;display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap}
+.mono{width:84px;height:84px;border-radius:50%;background:var(--navy-fg);color:var(--navy);display:grid;place-items:center;font-weight:700;font-size:1.7rem;letter-spacing:.02em;flex:none}
+.hero-text{min-width:0;display:grid;gap:.35rem}
+h1{font-size:clamp(2rem,5vw,2.7rem);font-weight:700;line-height:1.15;letter-spacing:-.01em}
+.title{font-size:1.1rem;color:var(--navy-muted);font-weight:500}
+.hero-links{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.6rem}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1rem;border-radius:6px;font-weight:600;font-size:.92rem;border:1px solid transparent}
+.btn-primary{background:var(--navy-fg);color:var(--navy)}
+.btn-ghost{border-color:rgba(255,255,255,.4);color:var(--navy-fg)}
+.btn:hover{text-decoration:none;opacity:.92}
+
+.grid{display:grid;grid-template-columns:18rem 1fr;gap:1.75rem;padding-block:2rem 3rem;align-items:start}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:1.5rem;display:grid;gap:1rem;min-width:0}
+aside{display:grid;gap:1.25rem}
+main{display:grid;gap:1.25rem;min-width:0}
+h2{font-size:.8rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--accent)}
+
+.contact-list{display:grid;gap:.8rem;list-style:none;padding:0}
+.contact-list .label{display:block;font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.contact-list .val{word-break:break-word}
+.copy-row{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+#email{user-select:all}
+.copy{font:600 .75rem var(--font);border:1px solid var(--line);background:var(--bg);color:var(--fg);padding:.15rem .5rem;border-radius:4px;cursor:pointer}
+
+.edu{display:grid;gap:1rem;list-style:none;padding:0}
+.edu li{display:grid;gap:.1rem}
+.edu strong{font-weight:600;line-height:1.35}
+.edu span{font-size:.88rem;color:var(--muted)}
+
+.tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.tag{font-size:.82rem;padding:.2rem .6rem;border-radius:4px;background:var(--accent-soft);color:var(--fg)}
+.skill-group{display:grid;gap:.45rem}
+.skill-group h3{font-size:.88rem;font-weight:600}
+
+.profile p{max-width:46rem}
+.profile p + p{color:var(--muted)}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;border-top:1px solid var(--line);padding-top:1rem}
+.stat strong{display:block;font-size:1.5rem;font-weight:700;color:var(--fg);font-variant-numeric:tabular-nums;line-height:1.2}
+.stat span{font-size:.85rem;color:var(--muted)}
+
+.hl-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.hl{border:1px solid var(--line);border-radius:6px;padding:1rem;display:grid;gap:.3rem;align-content:start}
+.hl h3{font-size:1rem;font-weight:600}
+.hl p{font-size:.92rem;color:var(--muted)}
+
+.job{display:grid;gap:.4rem;padding-bottom:1.25rem;border-bottom:1px solid var(--line)}
+.job:last-child{border-bottom:0;padding-bottom:0}
+.job-head{display:flex;justify-content:space-between;gap:.25rem 1rem;flex-wrap:wrap;align-items:baseline}
+.job h3{font-size:1.05rem;font-weight:600}
+.dates{font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.org{font-weight:500;color:var(--accent);font-size:.95rem}
+.job ul{padding-left:1.15rem;display:grid;gap:.3rem;margin-top:.2rem}
+
+footer{padding-block:0 2.5rem;color:var(--muted);font-size:.85rem;text-align:center}
+
+@media (max-width:860px){ .grid{grid-template-columns:1fr} aside{order:2} }
+@media (max-width:560px){
+  .hl-list{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr;gap:.6rem}
+  .hero{padding-block:2rem}
+  .mono{width:64px;height:64px;font-size:1.3rem}
+}
+</style>
+</head>
+<body>
+
+<div class="band"><div class="inner hero">
+  <div class="mono" aria-hidden="true">SK</div>
+  <div class="hero-text">
+    <h1>Suman Khatri</h1>
+    <p class="title">Cybersecurity &amp; IT Educator · Unit Leader · Curriculum Developer</p>
+    <div class="hero-links">
+      <a class="btn btn-primary" href="https://www.linkedin.com/in/suman-khatri-586505126/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      <a class="btn btn-ghost" href="#experience">View experience</a>
+    </div>
+  </div>
+</div></div>
+
+<div class="inner grid">
+  <aside>
+    <div class="card">
+      <h2>Contact</h2>
+      <ul class="contact-list">
+        <li><span class="label">Email</span><span class="copy-row"><span class="val" id="email">suman.khatri19@hotmail.com</span><button class="copy" id="copyEmail" type="button">Copy</button></span></li>
+        <li><span class="label">LinkedIn</span><a class="val" href="https://www.linkedin.com/in/suman-khatri-586505126/" target="_blank" rel="noopener">linkedin.com/in/suman-khatri</a></li>
+        <li><span class="label">Location</span><span class="val">Melbourne, Victoria</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Education</h2>
+      <ul class="edu">
+        <li><strong>Master of IT and Artificial Intelligence</strong><span>Griffith University · Cybersecurity major · GPA 6.5/7 · Graduating Dec 2026</span></li>
+        <li><strong>Certificate IV in Training and Assessment (TAE40122)</strong><span>Australian Learning Academy · 2024</span></li>
+        <li><strong>Bachelor of Information Technology</strong><span>La Trobe University · 2019 · WAM 83%</span></li>
+        <li><strong>Diploma of Information Technology</strong><span>La Trobe Melbourne · 2017 · Ranked 2nd in cohort</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Skills</h2>
+      <div class="skill-group"><h3>Education</h3><div class="tags"><span class="tag">Unit leadership</span><span class="tag">Curriculum design</span><span class="tag">Assessment &amp; moderation</span><span class="tag">Quality assurance</span><span class="tag">RTO compliance</span></div></div>
+      <div class="skill-group"><h3>Cybersecurity</h3><div class="tags"><span class="tag">Network security</span><span class="tag">Risk &amp; vulnerabilities</span><span class="tag">Wireshark</span><span class="tag">Kali Linux</span><span class="tag">Packet Tracer</span></div></div>
+      <div class="skill-group"><h3>Development</h3><div class="tags"><span class="tag">Python</span><span class="tag">Java</span><span class="tag">C# / .NET</span><span class="tag">Flutter</span><span class="tag">JavaScript</span><span class="tag">SQL</span><span class="tag">Git</span></div></div>
+      <div class="skill-group"><h3>Platforms</h3><div class="tags"><span class="tag">Moodle</span><span class="tag">aXcelerate</span><span class="tag">Microsoft 365</span><span class="tag">Teams</span><span class="tag">Zoom</span></div></div>
+    </div>
+  </aside>
+
+  <main>
+    <section class="card profile" aria-labelledby="h-profile">
+      <h2 id="h-profile">Profile</h2>
+      <p>Academic leader in higher education and vocational education, specialising in Information Technology and Cybersecurity. I lead units, coordinate teaching teams, design curriculum and assessment, and drive continuous improvement across Diploma, Foundation and VET programs.</p>
+      <p>I bring nearly four years of industry experience as a software developer, and I am completing a Master of Information Technology and Artificial Intelligence with a cybersecurity major.</p>
+      <div class="stats">
+        <div class="stat"><strong>3.5+ yrs</strong><span>Tertiary and VET teaching</span></div>
+        <div class="stat"><strong>200–300</strong><span>Students taught each year</span></div>
+        <div class="stat"><strong>4 yrs</strong><span>Software development</span></div>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="h-highlights">
+      <h2 id="h-highlights">Key Achievements</h2>
+      <div class="hl-list">
+        <div class="hl"><h3>Designed a new unit</h3><p>Built MPP1110 Cyber and Digital Foundations at Monash College from concept to delivery.</p></div>
+        <div class="hl"><h3>University curriculum transition</h3><p>Moved MCD4750 Introduction to Cybersecurity from Monash University into the college, and now lead it.</p></div>
+        <div class="hl"><h3>Offshore partner coordination</h3><p>Coordinate delivery with 10–12 academic stakeholders across partner institutions.</p></div>
+        <div class="hl"><h3>AI research capstone</h3><p>Replicated and evaluated a machine-learning malware detection study (Kaya et al.).</p></div>
+      </div>
+    </section>
+
+    <section class="card" id="experience" aria-labelledby="h-exp">
+      <h2 id="h-exp">Professional Experience</h2>
+
+      <div class="job">
+        <div class="job-head"><h3>Lecturer &amp; Unit Leader, Diploma of IT</h3><span class="dates">Apr 2023 – Present</span></div>
+        <div class="org">Monash College · Docklands, VIC</div>
+        <ul>
+          <li>Unit Leader for MCD4750 Introduction to Cybersecurity; Acting Unit Leader for MCD4710 Introduction to Programming and MCD4700 Computer Systems, Networks and Security.</li>
+          <li>Designed and implemented MPP1110 and led the transition of a Monash University unit into the college.</li>
+          <li>Mentor teaching staff, lead moderation, and improve units using learner data and feedback.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head"><h3>Lecturer &amp; Unit Leader (Casual)</h3><span class="dates">Jun 2024 – Present</span></div>
+        <div class="org">Deakin College · Burwood, VIC</div>
+        <ul>
+          <li>Former Unit Leader for SIT182 Real World Practices for Cyber Security.</li>
+          <li>Teach SIT102 Introduction to Programming, SIT120 Responsive Web Apps and FNDS012 Computer Skills.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head"><h3>Teacher, Information Technology &amp; Cyber Security</h3><span class="dates">Oct 2024 – Dec 2025</span></div>
+        <div class="org">Box Hill Institute · Box Hill, VIC</div>
+        <ul><li>Delivered and assessed the Certificate IV in Cyber Security and Certificate III in Information Technology.</li></ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head"><h3>Trainer &amp; Assessor, Information Technology</h3><span class="dates">Mar 2024 – Aug 2024</span></div>
+        <div class="org">Brighton College · Melbourne, VIC</div>
+        <ul><li>Delivered accredited Certificate III and IV IT training and assessment to RTO standards.</li></ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head"><h3>Software Developer</h3><span class="dates">Sep 2019 – Jun 2023</span></div>
+        <div class="org">TasWreck · Glenorchy, TAS</div>
+        <ul>
+          <li>Led a team of 3 developers building mobile and web apps for inventory, invoicing, order tracking and staff monitoring.</li>
+          <li>Supported staff through go-live and ran weekly stakeholder KPI reviews after launch.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer class="inner">References available on request.</footer>
+
+<script>
+document.getElementById('copyEmail').addEventListener('click', function(){
+  var btn=this, el=document.getElementById('email');
+  function done(m){btn.textContent=m;setTimeout(function(){btn.textContent='Copy'},1800)}
+  function fallback(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);done('Selected')}
+  try{navigator.clipboard.writeText(el.textContent).then(function(){done('Copied')},fallback)}catch(e){fallback()}
+});
+</script>
+</body>
+</html>
